@@ -1,0 +1,17 @@
+<p>register works!</p>
+
+<form [formGroup]="registerForm">
+    <label for="firstNameInput">First Name</label>
+    <input formControlName="firstName" type="text" id="firstNameInput">
+    <label for="lastNameInput">Last Name</label>
+    <input formControlName="lastName" type="text" id="lastNameInput">
+    <label for="emailInput">Email</label>
+    <input formControlName="email" type="email" id="emailInput">
+    <label for="passwordInput">Password</label>
+    <input formControlName="password" type="password" id="passwordInput">
+    <label for="confirmPasswordInput">Confirm Password</label>
+    <input formControlName="confirmPassword" type="password" id="confirmPasswordInput">
+
+    <button (click)="register()">Register</button>
+    <button (click)="moveToLogin()">Log In</button>
+</form>

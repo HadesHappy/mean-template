@@ -1,0 +1,4 @@
+::ng-deep .mat-menu-panel {
+  width: 300px !important; /* works well for 3 Tool icons */
+  max-height: 400px !important;
+}

@@ -1,0 +1,13 @@
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon>apps</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <mat-grid-list cols="3" gutterSize="5px">
+      <mat-grid-tile *ngFor="let item of toolItems">
+        <button mat-button [routerLink]="item.route" [disabled]="item.disabled">
+          <mat-icon>{{ item.iconName }}</mat-icon>
+          <div>{{ item.displayName }}</div> <!-- Really useful, this is how you superimpose an icon and text using Angular Materials-->
+        </button>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-menu>

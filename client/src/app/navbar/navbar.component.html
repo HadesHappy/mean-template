@@ -1,0 +1,9 @@
+<mat-toolbar>
+    <span></span>
+    <span class="spacer"></span>
+    <span *ngIf="isBoardRoute()">
+        <button mat-icon-button [routerLink]="'/board'"><mat-icon>arrow_back</mat-icon></button>
+    </span>
+    <app-toolmenu></app-toolmenu>
+    <button mat-icon-button [routerLink]="'/settings'"><mat-icon>settings</mat-icon></button>
+</mat-toolbar>

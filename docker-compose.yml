@@ -1,0 +1,26 @@
+version: "3" # specify docker-compose version
+
+# Define the services/ containers to be run
+services:
+  client: # name of the first service
+    build: ./client # specify the directory of the Dockerfile
+    ports:
+      - "4200:4200" # specify port mapping
+    volumes:
+      - ./client:/usr/src/app # this will enable changes made to the angular app reflect in the container
+      - /usr/src/app/node_modules # FIX for node modules being overwritten at runtime https://stackoverflow.com/questions/30043872/docker-compose-node-modules-not-present-in-a-volume-after-npm-install-succeeds
+
+  api: # name of the second service
+    build: ./api # specify the directory of the Dockerfile
+    ports:
+      - "3000:3000" #specify ports mapping
+    volumes:
+      - ./api:/usr/src/app # this will enable changes made to the angular app reflect in the container
+      - /usr/src/app/node_modules # FIX for node modules being overwritten at runtime https://stackoverflow.com/questions/30043872/docker-compose-node-modules-not-present-in-a-volume-after-npm-install-succeeds
+    links:
+      - database # link this service to the database service
+
+  database: # name of the third service
+    image: mongo # specify image to build container from
+    ports:
+      - "27017:27017" # specify port forwarding
